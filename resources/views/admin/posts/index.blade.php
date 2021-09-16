@@ -38,6 +38,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Category</th>
+                <th scope="col" class="text-center">Tags</th>
                 <th scope="col" class="text-center">Action</th>
               </tr>
             </thead>
@@ -50,6 +51,12 @@
                             @if ($post->category)
                                 {{$post->category->name}}
                             @endif
+                        </td>
+                        <td >
+                            @forelse ($post->tags as $tag)
+                                <span class="badge bg-info text-dark">{{$tag->name}}</span>
+                            @empty    
+                            @endforelse
                         </td>
                         <td class="text-center">
                             <a class="btn btn-primary" href="{{route('admin.posts.show', $post->id)}}">Show</a>

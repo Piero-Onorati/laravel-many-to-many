@@ -48,6 +48,26 @@
             </div>
             <!-- end POST CONTENT -->
 
+            <!-- start POST TAGS -->
+            <div class="mb-3">
+                <label class="form-label d-block">Tags</label>
+
+                @foreach ($tags as $tag)       
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" name="tags[]"
+                            id="tag{{$loop->iteration}}" 
+                            value="{{$tag->id}}"
+                            @if (in_array($tag->id, old('tags', [])))
+                            checked
+                            @endif
+                        >
+                        <label class="form-check-label" for="tag{{$loop->iteration}}">{{$tag->name}}</label>
+                    </div>
+                @endforeach
+        
+            </div>
+            <!-- end POST TAGS -->
+
             {{-- BUTTON --}}
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Add Post</button>

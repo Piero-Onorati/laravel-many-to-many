@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Category;
+use App\Tag;
 use App\Post;
 
 class PostController extends Controller
@@ -28,8 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -84,6 +86,11 @@ class PostController extends Controller
 
         $new_post->save();
 
+        // salvo i dati nella tabella ponte
+        if (array_key_exists('tags', $data)) {
+            $new_post->tags()->attach($data['tags']);
+        }
+
         return redirect()->route('admin.posts.index');
     }
 
@@ -107,8 +114,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
+        $tags = Tag::all();
         $post= Post::find($id);
-        return view('admin.posts.edit', compact('post','categories'));
+        return view('admin.posts.edit', compact('post','categories','tags'));
     }
 
     /**
@@ -161,6 +169,12 @@ class PostController extends Controller
         }
 
         $post->update($data);
+
+         // salvo i dati nella tabella ponte
+        if (array_key_exists('tags', $data)) {
+            $post->tags()->sync($data['tags']);
+        }
+
         return redirect()->route('admin.posts.index')->with('edit','Post n. ' . $post->id . ' has been updated.');
     }
 
@@ -173,6 +187,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+
+        $post->tags()->detach();
+
         return redirect()->route('admin.posts.index')->with('delete','Post n. ' . $post->id . ' has been deleted.');
     }
 }
