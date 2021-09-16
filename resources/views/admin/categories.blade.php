@@ -2,34 +2,58 @@
 
 @section('content')
 
-
    <div class="container">
+
+    <div class="card-header mb-4">
+        <h3>Categories list</h3>
+    </div>
+
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
         @foreach ($categories as $category)
-        <div class="col">
-            <div class="card border-info mb-4">
-                <div class="card-header bg-light">
-                    <h5 class="text-uppercase fw-bold">{{$category->name}}</h5>
+            <div class="col mb-5">
+                <!-- start CARD -->
+                <div class="card border-secondary ">
+
+                    {{-- card header --}}
+                    <button class="card-header bg-dark text-light border-0" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#tag{{$loop->iteration}}" aria-expanded="false" aria-controls="collapseExample">
+                        <h6 class="text-uppercase fw-bold">
+                            <i class="bi bi-arrow-down-square"></i>
+                            {{$category->name}}
+                            <span class="badge bg-danger">{{count($category->posts)}}+</span>
+                        </h6>
+                    </div>
+
+                    {{-- card body --}}
+                    <div class="collapse" id="tag{{$loop->iteration}}">
+                        <table class="table table-hover">
+                            <tbody class="text-center">
+                                @forelse ($category->posts as $post)
+                                <tr>
+                                    <td>
+                                        <a href="{{route('admin.posts.show', $post->id)}}">
+                                            <i class="bi bi-file-text"></i>
+                                            {{$post->title}}
+                                        </a>
+                                    </td>
+                                @empty
+                                    <td>
+                                        There are not posts with this category. 
+                                        <a href="{{route('admin.posts.create')}}" class="link-dark">Write it now!</a>
+                                    </td>
+                                </tr>
+                                @endforelse 
+                            </tbody>
+                        </table>
+                    </button>
+                    
                 </div>
-                <div class="card-body">
-                    <table class="table table-hover">
-                        <tbody>
-                            @forelse ($category->posts as $post)
-                            <tr>
-                                <td><a href="{{route('admin.posts.show', $post->id)}}">{{$post->title}}</a></td>
-                            @empty
-                                <td>There are not posts with this category. <a href="{{route('admin.posts.create')}}" class="link-dark">Write it now!</a></td>
-                            </tr>
-                            @endforelse 
-                        </tbody>
-                    </table>
-                </div>
+                <!-- end CARD -->
             </div>
-        </div>
         @endforeach
       </div>
-   </div>
 
+   </div>
    
 @endsection

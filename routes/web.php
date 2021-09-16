@@ -23,6 +23,8 @@ Route::middleware('auth')->namespace('Admin')->prefix('admin')->name('admin.')->
     Route::get('/', 'HomeController@index')->name('index');
 
     Route::get('/categories', 'HomeController@category')->name('category_page');
+    Route::get('/tags', 'HomeController@tags')->name('tags_page');
+
 
 
     Route::resource('/posts', 'PostController');

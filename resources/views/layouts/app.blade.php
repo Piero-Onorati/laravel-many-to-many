@@ -75,7 +75,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="nav-link px-0 align-middle">
+                                    <a href="{{route('admin.tags_page')}}" class="nav-link px-0 align-middle">
                                         <i class="bi bi-tag-fill" style="font-size:1.1rem"></i> 
                                         <h6 class="ms-2 d-none d-sm-inline">Tags</h6>
                                     </a>
