@@ -13,7 +13,13 @@ class Post extends Model
         'category_id'
     ];
 
+    // One to Many relation
     public function category(){
         return $this->belongsTo('App\Category');
+    }
+
+    // Many to Many relation
+    public function tags(){
+        return $this->belongsToMany('App\Tag');
     }
 }
