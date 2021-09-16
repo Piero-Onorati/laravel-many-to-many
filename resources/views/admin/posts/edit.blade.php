@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-4">
         <h2>Edit post n. {{$post->id}}</h2>
 
         <form action="{{route('admin.posts.update', $post->id)}}" method="post">
@@ -75,8 +75,10 @@
             {{-- BUTTON --}}
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Edit Post</button>
+                <a href="{{route('admin.posts.index')}}" class="btn btn-dark mx-3">Back to Posts List</a>
             </div>
         </form>
+
     </div>
     
 @endsection

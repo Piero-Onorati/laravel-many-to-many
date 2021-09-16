@@ -1,0 +1,58 @@
+.my_navbar{
+    background-color: #000014;
+}
+
+.page{
+    background-color:#000000 ;
+    height:calc(100vh - 55px);
+    width: 100%;
+    overflow: hidden;
+
+    .content_box{
+        height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        padding: 150px;
+
+        h2{
+            font-size: 38px;
+            color: whitesmoke;
+            line-height: 50px;
+            letter-spacing: 1px;
+            padding-bottom: 15px;
+        }
+
+        p{
+            font-size: 22px;
+            color: rgb(109, 109, 109);
+            line-height: 32px;
+            letter-spacing: 1px;
+        }
+
+        .social_icons{
+            color:rgb(109, 109, 109);
+            font-size: 28px;
+            display: flex;
+
+
+            i{
+                margin-right: 25px;
+                &:hover{
+                    cursor: pointer;
+                    color: #27003d;
+                }
+            }
+        }
+        
+    }
+
+
+    .img_box{
+
+        .first_img{
+            width:100%
+        }
+    }
+}

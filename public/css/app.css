@@ -10942,3 +10942,57 @@ a.text-dark:focus {
   }
 }
 
+.my_navbar {
+  background-color: #000014;
+}
+
+.page {
+  background-color: #000000;
+  height: calc(100vh - 55px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.page .content_box {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 150px;
+}
+
+.page .content_box h2 {
+  font-size: 38px;
+  color: whitesmoke;
+  line-height: 50px;
+  letter-spacing: 1px;
+  padding-bottom: 15px;
+}
+
+.page .content_box p {
+  font-size: 22px;
+  color: #6d6d6d;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+
+.page .content_box .social_icons {
+  color: #6d6d6d;
+  font-size: 28px;
+  display: flex;
+}
+
+.page .content_box .social_icons i {
+  margin-right: 25px;
+}
+
+.page .content_box .social_icons i:hover {
+  cursor: pointer;
+  color: #27003d;
+}
+
+.page .img_box .first_img {
+  width: 100%;
+}
+

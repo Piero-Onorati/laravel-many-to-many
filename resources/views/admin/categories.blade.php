@@ -4,7 +4,7 @@
 
    <div class="container">
 
-    <div class="card-header mb-4">
+    <div class="card-header my-4">
         <h3>Categories list</h3>
     </div>
 

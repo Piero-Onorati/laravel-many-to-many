@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container pt-4">
 
   <!-- start CARD -->
   <div class="card mb-3">
@@ -36,7 +36,7 @@
 
     {{-- card footer --}}
     <div class="card-footer text-muted">
-      2 days ago
+      Written by: User
     </div>
 
   </div>
@@ -45,7 +45,7 @@
   <!-- BUTTONS -->
   <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-primary">Edit Post</a>
 
-  <a href="{{route('admin.posts.index')}}" class="btn btn-dark">Back to Posts List</a>
+  <a href="{{route('admin.posts.index')}}" class="btn btn-dark mx-3">Back to Posts List</a>
 
 </div>
     

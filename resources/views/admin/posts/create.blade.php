@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container pt-4">
 
         <form action="{{route('admin.posts.store')}}" method="post">
             @csrf
@@ -71,6 +71,7 @@
             {{-- BUTTON --}}
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Add Post</button>
+                <a href="{{route('admin.posts.index')}}" class="btn btn-dark mx-3">Back to Posts List</a>
             </div>
 
         </form>

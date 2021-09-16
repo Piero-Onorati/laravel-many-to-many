@@ -114,7 +114,7 @@ deleteForm.forEach(function (element) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\boolean\mamp_public\laravel-boolpress\resources\js\admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\boolean\mamp_public\laravel-many-to-many\resources\js\admin.js */"./resources/js/admin.js");
 
 
 /***/ })
